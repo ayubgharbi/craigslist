@@ -1,1 +1,18 @@
-<p>Home</p>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <% @categories.each do |category| %>
+                    <p><%= category.name %></p>
+
+                    <% category.subcategories.each do |subcategory| %>
+                        <div class="subcat"><%= subcategory.name %></div>
+                    <% end %>
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
