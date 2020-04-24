@@ -1,6 +1,5 @@
-<div class="container">
     <div class="row">
-        <div class="col-12 pt-3 pb-3">
+        <div class="col-12 pt-4 pb-3">
             <% if account_signed_in? %>
             <%= link_to "Sign out", destroy_account_session_path, method: :delete, class: "float-right text-dark ml-3" %>
             <% else %>
@@ -10,27 +9,26 @@
 
             <%= link_to "Dashboard", "#", class: "float-right text-dark ml-3" if account_signed_in? %>
 
-            <%= link_to "Home", root_path, class: "text-dark" %> >>
+            <%= link_to "Home", root_path %> >>
 
             <% if @post.present? && !@post.new_record?
                 category = @post.category
                 parent = category.parent
             %>
             <% if parent.present? %>
-                <%= link_to parent.name, category_path(parent), class: "text-dark" %> >>
+                <%= link_to parent.name, show_category_path(parent.url) %> >>
             <% end %>
-            <%= link_to category.name, category_path(category), class: "text-dark" %> >>
+            <%= link_to category.name, show_category_path(category.url) %> >>
             <%= @post.title %>
             <% elsif @category.present? 
                 parent = @category.parent
             %>
             <% if parent.present? %>
-                <%= link_to parent.name, category_path(parent), class: "text-dark" %> >>
+                <%= link_to parent.name, show_category_path(parent.url) %> >>
             <% end %>
 
             <%= @category.name %>
             <% end %>
         </div>
     </div>
-</div>
 

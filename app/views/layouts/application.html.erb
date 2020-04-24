@@ -10,13 +10,13 @@
   </head>
 
   <body>
-    <header class="header">
-      <%= render "layouts/breadcrumb_nav" %>
-    </header>
+
     <div class="container">
       <div class="row">
         <div class="col-3">
-          <p><strong><%= link_to "Craigslist Clone", root_path, class: "text-dark" %></strong></p>
+          <%= link_to root_path, class: "text-dark" do %>
+            <%= image_tag("app-logo.png", width: "200px", class: "mt-4 mb-5") %>
+          <% end %>
 
           <p><%= link_to "Create new post", new_post_path, class: "btn btn-success" unless is_auth? %></p>
 
@@ -31,15 +31,16 @@
             </div>
           <% end %>
 
-          
-
         </div>
         <div class="col-9">
+          <header id="header">
+            <%= render "layouts/breadcrumb_nav" %>
+          </header>
           <%= yield %>
         </div>
       </div>
     </div>
     
-    <div id="notice"><%= notice %></div>
+    <%= flash_notifications %>
   </body>
 </html>

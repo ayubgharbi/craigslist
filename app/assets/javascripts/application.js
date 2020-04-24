@@ -15,3 +15,12 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require toastr
+
+import toastr from 'toastr';
+toastr.options = {
+    progressbar: true;
+}
+global.toastr = toastr;
+ 
+import './src/toastr.scss'
