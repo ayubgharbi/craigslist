@@ -6,23 +6,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&dispaly=swap" rel="stylesheet">
   </head>
 
   <body>
     <header class="header">
       <%= render "layouts/breadcrumb_nav" %>
     </header>
-    <p class="notice"><%= notice %></p>
     <div class="container">
       <div class="row">
         <div class="col-3">
           <p><strong><%= link_to "Craigslist Clone", root_path, class: "text-dark" %></strong></p>
 
-          <p><%= link_to "Create new post", new_post_path, class: "btn btn-success" %></p>
+          <p><%= link_to "Create new post", new_post_path, class: "btn btn-success" unless is_auth? %></p>
 
           <%= render "categories/category_sidebar" if controller.controller_name == "categories" %>
           
-          <% if is_home? %>
+          <% if is_home? || is_auth? %>
             <div class="nav-pages mt-5">
               <p><%= link_to "help, faqs, abuse, legal", faqs_path %></p>
               <p><%= link_to "avoid scams and fraud", scams_path %></p>
@@ -39,5 +39,7 @@
         </div>
       </div>
     </div>
+    
+    <div id="notice"><%= notice %></div>
   </body>
 </html>

@@ -2,15 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.category-box {
-    width: 33%;
-    float: left;
+.category-box .h6 {
+    background: #dedede;
+    padding: 5px 8px;
+    border-radius: 6px;
 }
 
-.category-post {
-    margin-bottom: 10px;
-    padding: 10px;
-    background: #fefefe;
+.subcat {
+    margin-left: 10px;
 }
 
 .post-date {
