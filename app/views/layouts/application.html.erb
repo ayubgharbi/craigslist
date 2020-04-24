@@ -16,14 +16,14 @@
     <div class="container">
       <div class="row">
         <div class="col-3">
-          <p><strong><%= link_to "Craigslist Clone", root_path %></strong></p>
+          <p><strong><%= link_to "Craigslist Clone", root_path, class: "text-dark" %></strong></p>
 
-          <p><%= link_to "Create new post", new_post_path %></p>
+          <p><%= link_to "Create new post", new_post_path, class: "btn btn-success" %></p>
 
           <%= render "categories/category_sidebar" if controller.controller_name == "categories" %>
           
           <% if is_home? %>
-            <div class="nav-pages">
+            <div class="nav-pages mt-5">
               <p><%= link_to "help, faqs, abuse, legal", faqs_path %></p>
               <p><%= link_to "avoid scams and fraud", scams_path %></p>
               <p><%= link_to "personal safety tips", safety_path %></p>
@@ -31,7 +31,7 @@
             </div>
           <% end %>
 
-          <%= link_to "My Account", new_account_session_path unless account_signed_in? %>
+          
 
         </div>
         <div class="col-9">

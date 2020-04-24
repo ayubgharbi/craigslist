@@ -1,34 +1,36 @@
-<p class="container">
+<div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 pt-3 pb-3">
             <% if account_signed_in? %>
-            <%= link_to "Sign out", destroy_account_session_path, method: :delete, class: "pull-right m-l-10" %>
+            <%= link_to "Sign out", destroy_account_session_path, method: :delete, class: "float-right text-dark ml-3" %>
             <% else %>
-            <%= link_to "My account", new_account_session_path, class: "pull-right m-l-10" %>
+            <%= link_to "Sign In", new_account_session_path, class: "float-right text-dark ml-3" %>
+            <%= link_to "New Account", new_account_registration_path, class: "float-right text-dark ml-3" %>
             <% end %>
-            <%= link_to "New Post", new_post_path, class: "pull-right" %> 
 
-            <%= link_to "Home", root_path %> >>
+            <%= link_to "Dashboard", "#", class: "float-right text-dark ml-3" if account_signed_in? %>
+
+            <%= link_to "Home", root_path, class: "text-dark" %> >>
 
             <% if @post.present? 
                 category = @post.category
                 parent = category.parent
             %>
             <% if parent.present? %>
-                <%= link_to parent.name, category_path(parent) %> >>
+                <%= link_to parent.name, category_path(parent), class: "text-dark" %> >>
             <% end %>
-            <%= link_to category.name, category_path(category) %> >>
+            <%= link_to category.name, category_path(category), class: "text-dark" %> >>
             <%= @post.title %>
             <% elsif @category.present? 
                 parent = @category.parent
             %>
             <% if parent.present? %>
-                <%= link_to parent.name, category_path(parent) %> >>
+                <%= link_to parent.name, category_path(parent), class: "text-dark" %> >>
             <% end %>
 
             <%= @category.name %>
             <% end %>
         </div>
     </div>
-</p>
+</div>
 
