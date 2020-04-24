@@ -12,15 +12,15 @@
 //
 //= require rails-ujs
 //= require_tree .
-//= require jquery3
+//= require jquery
+//= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
-//= require toastr
 
-import toastr from 'toastr';
-toastr.options = {
-    progressbar: true;
-}
-global.toastr = toastr;
- 
-import './src/toastr.scss'
+$(function(){
+    $("#show_contact_form").on("click", function(e){
+        e.preventDefault();
+        $("#contact-form").show();
+        $(this).hide();
+    });
+});

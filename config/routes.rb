@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :categories, except: [:show]
   get "c/:url" => "categories#show", as: :show_category
+
+  post "message/send" => "public#send_enguiry_to_user", as: :send_enquiry
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/faqs" => "public#faqs", as: :faqs 
