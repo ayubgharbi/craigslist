@@ -16,6 +16,8 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+//= require toastr
+
 
 $(function(){
     $("#show_contact_form").on("click", function(e){
@@ -24,3 +26,4 @@ $(function(){
         $(this).hide();
     });
 });
+

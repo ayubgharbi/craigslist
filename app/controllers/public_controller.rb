@@ -8,10 +8,13 @@ class PublicController < ApplicationController
         @post = Post.find(params[:post_id])
         
         if @post.present? 
-            logger.debug "Message has been sent to user"
-
-            ContactMailer.post_enquiry(@post.id).deliver_now
+            ContactMailer.post_enquiry(@post.id, params[:email], params[:message]).deliver_now
+            flash[:success] = "Message sent successfully"
+        else
+            flash[:danger] = "Unable to send message"
         end
+
+        redirect_to post_path(@post)
     end
 
     def faqs
